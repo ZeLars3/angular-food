@@ -1,0 +1,23 @@
+{
+  "name": "angular-food",
+  "version": "1.0.0",
+  "description": "fullstack app ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
+  "keywords": [
+    "angular",
+    "js",
+    "express"
+  ],
+  "author": "Yahor Vydrenka <zelt378@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
