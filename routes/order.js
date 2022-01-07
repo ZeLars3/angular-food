@@ -1,5 +1,6 @@
 const express = require('express');
 const contreller = require('../controller/order');
+const passport = require('passport');
 const router = express.Router();
 
 router.get('/', passport.authenticate('jwt', {session: false}), contreller.getAll);

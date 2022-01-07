@@ -1,5 +1,6 @@
 const express = require('express');
 const contreller = require('../controller/position');
+const passport = require('passport');
 const router = express.Router();
 
 router.get('/:categoryId', passport.authenticate('jwt', {session: false}), contreller.getByCategoryId);
