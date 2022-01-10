@@ -12,9 +12,10 @@ const positionRoutes = require('./routes/position');
 const keys = require('./config/keys');
 const app = express();
 
-mongoose.connect(keys.mongoURI)
-    .then(() => console.log('Connected to MongoDB...'))
-    .catch(err => console.log('Could not connect to MongoDB...', err));
+mongoose
+  .connect(keys.mongoURI)
+  .then(() => console.log('Connected to MongoDB...'))
+  .catch((err) => console.log('Could not connect to MongoDB...', err));
 
 app.use(passport.initialize());
 require('./middleware/passport')(passport);

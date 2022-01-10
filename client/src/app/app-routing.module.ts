@@ -1,3 +1,4 @@
+import { AuthGuard } from './shared/guards/auth.guard';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.component';
 import { NgModule } from '@angular/core';
@@ -28,11 +29,12 @@ const routes: Routes = [
   {
     path: '',
     component: SiteLayoutComponent,
-    children: [],
+    canActivate: [AuthGuard],
+    children: []
   },
   {
     path: '**',
-    redirectTo: 'login',
+    redirectTo: '/login',
   },
 ];
 
