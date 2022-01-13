@@ -1,9 +1,10 @@
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { AuthService } from './../shared/services/auth.service';
+import { AuthService } from '../shared/services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LoginPageValidator } from '../login-page/login-page.validator';
+import { Materialservice } from '../shared/services/material.service';
 
 @Component({
   selector: 'app-register-page',
@@ -38,7 +39,7 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
         });
       },
       (error) => {
-        console.error(error);
+        Materialservice.toast(error.error.message);
         this.form.enable();
       }
     );

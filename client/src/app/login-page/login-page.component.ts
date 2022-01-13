@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Materialservice } from '../shared/services/material.service';
 import { AuthService } from '../shared/services/auth.service';
 import { LoginPageValidator } from './login-page.validator';
 
@@ -32,9 +33,9 @@ export class LoginPageComponent implements OnInit, OnDestroy {
 
     this.route.queryParams.subscribe((params: Params) => {
       if (params['registered']) {
-        this.form.getRawValue().email = params['email'];
+        Materialservice.toast('You have been registered and can login now');
       } else if (params['accessDenied']) {
-        this.form.getRawValue().email = params['email'];
+        Materialservice.toast('You need to login first');
       }
     });
   }
@@ -53,7 +54,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
         this.router.navigate(['/overview']);
       },
       (error) => {
-        console.log('login error', error);
+        Materialservice.toast(error.error.message);
         this.form.enable();
       }
     );

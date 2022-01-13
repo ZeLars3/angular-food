@@ -1,7 +1,7 @@
 import { Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IUser } from '../interfaces';
+import { IUser } from '../models/interfaces';
 
 @Injectable({
   providedIn: 'root',
